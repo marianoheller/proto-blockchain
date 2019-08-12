@@ -20,4 +20,20 @@ function Transaction(from, to, amount, privateKey) {
   };
 }
 
-module.exports = Transaction;
+const hasValidKeys = R.compose(
+  R.equals(0),
+  R.length,
+  R.difference
+);
+
+const isTransaction = t => {
+  const { privateKey } = pki.generateKeyPair();
+  const targetKeys = Object.keys(t);
+  const validKeys = Object.keys(Transaction("", "", 99, privateKey));
+  return hasValidKeys(targetKeys, validKeys);
+};
+
+module.exports = {
+  Transaction,
+  isTransaction
+};

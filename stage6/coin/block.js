@@ -12,7 +12,7 @@ const mineBlock = blockContents => {
 function Block(prevBlock, transaction) {
   const isGenesisBlock = !prevBlock;
   const prevBlockHash = isGenesisBlock ? null : prevBlock.blockHash;
-  const blockContents = prevBlockHash + transaction;
+  const blockContents = prevBlockHash + JSON.stringify(transaction);
   const { blockHash, nonce } = mineBlock(blockContents);
 
   return {
