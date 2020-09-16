@@ -16,7 +16,7 @@
     "inquirer": "^6.5.0",
     "minimist": "^1.2.0",
     "morgan": "^1.9.1",
-    "node-forge": "^0.8.5",
+    "node-forge": "^0.10.0",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
